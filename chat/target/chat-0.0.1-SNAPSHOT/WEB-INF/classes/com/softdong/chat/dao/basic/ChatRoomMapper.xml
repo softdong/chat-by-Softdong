@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.softdong.chat.dao.basic.ChatRoomMapper" >
+  <resultMap id="BaseResultMap" type="com.softdong.chat.entity.basic.ChatRoom" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="password" property="password" jdbcType="VARCHAR" />
+    <result column="creater_id" property="createrId" jdbcType="INTEGER" />
+    <result column="icon" property="icon" jdbcType="VARCHAR" />
+    <result column="tips" property="tips" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, name, password, creater_id, icon, tips
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from chatroom
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from chatroom
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.softdong.chat.entity.basic.ChatRoom" >
+    insert into chatroom (id, name, password, 
+      creater_id, icon, tips
+      )
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+      #{createrId,jdbcType=INTEGER}, #{icon,jdbcType=VARCHAR}, #{tips,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.softdong.chat.entity.basic.ChatRoom" >
+    insert into chatroom
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="password != null" >
+        password,
+      </if>
+      <if test="createrId != null" >
+        creater_id,
+      </if>
+      <if test="icon != null" >
+        icon,
+      </if>
+      <if test="tips != null" >
+        tips,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null" >
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="createrId != null" >
+        #{createrId,jdbcType=INTEGER},
+      </if>
+      <if test="icon != null" >
+        #{icon,jdbcType=VARCHAR},
+      </if>
+      <if test="tips != null" >
+        #{tips,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.softdong.chat.entity.basic.ChatRoom" >
+    update chatroom
+    <set >
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null" >
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="createrId != null" >
+        creater_id = #{createrId,jdbcType=INTEGER},
+      </if>
+      <if test="icon != null" >
+        icon = #{icon,jdbcType=VARCHAR},
+      </if>
+      <if test="tips != null" >
+        tips = #{tips,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.softdong.chat.entity.basic.ChatRoom" >
+    update chatroom
+    set name = #{name,jdbcType=VARCHAR},
+      password = #{password,jdbcType=VARCHAR},
+      creater_id = #{createrId,jdbcType=INTEGER},
+      icon = #{icon,jdbcType=VARCHAR},
+      tips = #{tips,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+	<select id="selectAll" resultMap="BaseResultMap">
+  	select  
+  	<include refid="Base_Column_List" />
+    from chatroom
+  </select>
+</mapper>

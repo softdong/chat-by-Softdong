@@ -1,0 +1,35 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>聊天室</title>
+<link rel="stylesheet"
+	href="<%=request.getContextPath()%>/css/bootstrap.min.css">
+
+<link rel="stylesheet"
+	href="<%=request.getContextPath()%>/css/bootstrap-theme.min.css">
+
+<script src="<%=request.getContextPath()%>/js/jquery.min.js"></script>
+
+<script src="<%=request.getContextPath()%>/js/bootstrap.min.js"></script>
+<script>
+	var root = "/chat";
+	//创建对象需要一层一层创建
+	var cd={};
+	cd.user={};
+	cd.user.username="111";
+	alert(cd.user.username);
+</script>
+</head>
+
+<body>
+	<div style="width:500px;margin:0 auto" >
+		<input type="text" id ="sendMessage"/>
+		<input type="button" id="btnSend"/>
+		<input type="button" id="连接"/>
+	</div>
+
+</body>
+
+</html>

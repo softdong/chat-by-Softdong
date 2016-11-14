@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration>
+	<!--导入属性配置 -->  
+    <properties resource="jdbc.properties"></properties>  
+	<classPathEntry
+		location="C:\Users\Administrator\.m2\repository\mysql\mysql-connector-java\5.1.30\mysql-connector-java-5.1.30.jar" />
+	<context id="context1" targetRuntime="MyBatis3">
+		<commentGenerator>
+			<!-- 是否去除自动生成的注释 true：是 ： false:否 -->
+			<property name="suppressAllComments" value="true" />
+		</commentGenerator>
+
+		<!-- 数据库连接配置 -->
+		<jdbcConnection driverClass="${jdbc.driver}"
+			connectionURL="${jdbc.url}" userId="${jdbc.username}"
+			password="${jdbc.password}" />
+			
+		<!-- model代码的生成 -->
+		<javaModelGenerator targetPackage="com.softdong.chat.entity.basic"
+			targetProject="src/main/java" />
+			
+		<!-- Map.xml文件的生成 -->
+		<sqlMapGenerator targetPackage="com.softdong.chat.dao.basic" targetProject="src/main/resources" />
+		
+		<!-- Map.java文件的生成  注意不要和上面弄反了，下面的XMLMAPPER实际上指java代码的类型-->
+		<javaClientGenerator type="XMLMAPPER"
+			targetPackage="com.softdong.chat.dao.basic" targetProject="src/main/java">
+		</javaClientGenerator>
+		<!-- 要映射的表 -->
+		<table tableName="user" domainObjectName="User"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<property name="useActualColumnNames" value="false" />
+		</table>
+		<table tableName="chatroom" domainObjectName="ChatRoom"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<property name="useActualColumnNames" value="false" />
+		</table>
+	</context>
+</generatorConfiguration>

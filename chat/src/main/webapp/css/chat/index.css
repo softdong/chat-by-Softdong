@@ -1,0 +1,40 @@
+/* #header {
+	height: 45px;
+	background: #ededed;
+	FILTER: progid: DXImageTransform.Microsoft.Gradient(gradientType=0, startColorStr=#fff, endColorStr=#ededed);
+	IE 6 7 8
+	background: -ms-linear-gradient(top, #fff, #ededed);
+	IE 10
+	background: -moz-linear-gradient(top, #fff, #ededed);
+	火狐
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#fff), to(#ededed));
+	谷歌
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#fff), to(#ededed));
+	Safari 4-5, Chrome 1-9
+	background: -webkit-linear-gradient(top, #fff, #ededed);
+	Safari5.1 Chrome 10+
+	background: -o-linear-gradient(top, #fff, #ededed);
+	Opera 11.10+
+}
+
+.header_content {
+	width: 80%;
+	height: 45px;
+	margin: 0 auto;
+}
+.header_content img{
+	display:inline-block;
+	height:25px;
+	width:25px;
+}
+.webinfo {
+	display:inline-block;
+	float: left;
+	margin-top:4px;
+}
+
+.userinfo {
+	float: right;
+	margin-top:4px;
+}
+ */

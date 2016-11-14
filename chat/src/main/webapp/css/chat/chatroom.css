@@ -1,0 +1,78 @@
+#personPanel {
+	width: 300px;
+	height: 70vh;
+	margin-top: 4vh;
+	float: left;
+}
+
+#chatroomcontent {
+	margin: 10px auto;
+	width: 970px;
+}
+
+#chatRoom {
+	position: relative;
+	width: 650px;
+	height: 70vh;
+	margin-top: 4vh;
+	float: right;
+}
+
+.input-group {
+	position: absolute;
+	bottom: 0px;
+}
+
+#chatRoom ul {
+	list-style: none;
+}
+
+#chatRoom ul li {
+	position: relative;
+	height:auto;
+	clear:both;
+	margin-top:10px;
+}
+
+.worditem{
+	margin:10px 10px 10px 10px;
+}
+.right div,.right span{
+	float:right;
+	text-align:right;
+}   
+
+.left div,.left span{
+	float:left;
+	text-align:left;
+}
+
+.worditem span{
+	border: 1px solid #fff;
+	border-radius: 3px;
+	font-size: 2vh;
+	line-height: 2vh;
+	padding: 5px 10px;
+	margin-top:3.5vh;
+	box-shadow: 2px 2px 2px;
+	background: #fff;
+	max-width:300px;
+	margin-left:0;
+	margin-bottom:20px;
+	word-wrap:break-word;
+	word-break:break-all;
+	text-align:left;
+	line-height:1.5;
+}
+
+.worditem div{
+	display:inline;
+	font-size: 2vh;
+	line-height: 2vh;
+	color:#000;
+	margin-top:10px;
+}
+
+.custom_group{
+	width:100%;
+}

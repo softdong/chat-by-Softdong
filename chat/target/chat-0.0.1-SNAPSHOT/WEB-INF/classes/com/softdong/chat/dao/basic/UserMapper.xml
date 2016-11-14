@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.softdong.chat.dao.basic.UserMapper" >
+  <resultMap id="BaseResultMap" type="com.softdong.chat.entity.basic.User" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="username" property="username" jdbcType="VARCHAR" />
+    <result column="password" property="password" jdbcType="VARCHAR" />
+    <result column="lastlogintime" property="lastlogintime" jdbcType="TIMESTAMP" />
+    <result column="registertime" property="registertime" jdbcType="TIMESTAMP" />
+    <result column="nickname" property="nickname" jdbcType="VARCHAR" />
+    <result column="phonenumber" property="phonenumber" jdbcType="VARCHAR" />
+    <result column="email" property="email" jdbcType="VARCHAR" />
+    <result column="icon" property="icon" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, username, password, lastlogintime, registertime, nickname, phonenumber, email, 
+    icon
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from user
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from user
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.softdong.chat.entity.basic.User" >
+    insert into user (id, username, password, 
+      lastlogintime, registertime, nickname, 
+      phonenumber, email, icon
+      )
+    values (#{id,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+      #{lastlogintime,jdbcType=TIMESTAMP}, #{registertime,jdbcType=TIMESTAMP}, #{nickname,jdbcType=VARCHAR}, 
+      #{phonenumber,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{icon,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.softdong.chat.entity.basic.User" >
+    insert into user
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="username != null" >
+        username,
+      </if>
+      <if test="password != null" >
+        password,
+      </if>
+      <if test="lastlogintime != null" >
+        lastlogintime,
+      </if>
+      <if test="registertime != null" >
+        registertime,
+      </if>
+      <if test="nickname != null" >
+        nickname,
+      </if>
+      <if test="phonenumber != null" >
+        phonenumber,
+      </if>
+      <if test="email != null" >
+        email,
+      </if>
+      <if test="icon != null" >
+        icon,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="username != null" >
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null" >
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="lastlogintime != null" >
+        #{lastlogintime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="registertime != null" >
+        #{registertime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="nickname != null" >
+        #{nickname,jdbcType=VARCHAR},
+      </if>
+      <if test="phonenumber != null" >
+        #{phonenumber,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null" >
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="icon != null" >
+        #{icon,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.softdong.chat.entity.basic.User" >
+    update user
+    <set >
+      <if test="username != null" >
+        username = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null" >
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="lastlogintime != null" >
+        lastlogintime = #{lastlogintime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="registertime != null" >
+        registertime = #{registertime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="nickname != null" >
+        nickname = #{nickname,jdbcType=VARCHAR},
+      </if>
+      <if test="phonenumber != null" >
+        phonenumber = #{phonenumber,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null" >
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="icon != null" >
+        icon = #{icon,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.softdong.chat.entity.basic.User" >
+    update user
+    set username = #{username,jdbcType=VARCHAR},
+      password = #{password,jdbcType=VARCHAR},
+      lastlogintime = #{lastlogintime,jdbcType=TIMESTAMP},
+      registertime = #{registertime,jdbcType=TIMESTAMP},
+      nickname = #{nickname,jdbcType=VARCHAR},
+      phonenumber = #{phonenumber,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      icon = #{icon,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  
+   <select id="selectByUserName" parameterType="java.lang.String" resultMap="BaseResultMap">
+  	select 
+  	  <include refid="Base_Column_List" />
+  	from 
+  		user
+  	where
+  		username = #{value}
+  </select>
+</mapper>
